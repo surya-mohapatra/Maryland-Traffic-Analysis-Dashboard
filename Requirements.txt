@@ -1,0 +1,6 @@
+Python Modules Needed for Dashboard
+
+streamlit==1.29.0  # Replace with the version you are using
+pandas==2.1.1     # Replace with the version you are using
+matplotlib==3.8.1 # Replace with the version you are using
+seaborn==0.13.0   # Replace with the version you are using
