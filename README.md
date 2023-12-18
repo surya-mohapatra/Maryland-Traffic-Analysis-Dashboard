@@ -15,7 +15,7 @@ The solution involves a Streamlit-based web application that dynamically visuali
 
 ## Repository Contents
 
-1. EDA.ipynb: This Jupyter Notebook contains detailed exploratory data analysis (EDA) of the Maryland traffic dataset. It includes various functions and visualizations that delve into different aspects of the data, such as traffic volume distributions, time series analysis, and comparisons across different road types and counties. The notebook is designed to provide an in-depth understanding of the data, uncover patterns and trends, and support the findings presented in the Streamlit dashboard.
+1. EDA.ipynb: This Jupyter Notebook contains detailed exploratory data analysis (EDA) of the Maryland traffic dataset. It includes various functions and visualizations that delve into different aspects of the data, such as traffic volume distributions, and comparisons across different road types and counties. The notebook is designed to provide an understanding of the data, uncover patterns and trends, and support the findings presented in the Streamlit dashboard.
    
 2. app.py: The main Streamlit application file containing the dashboard logic, data analysis functions, and visualization code.
    
