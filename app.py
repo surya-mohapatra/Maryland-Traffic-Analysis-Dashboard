@@ -13,10 +13,13 @@ def get_yearly_traffic_data(data, year): #takes df and year as arguments
 
 # compares aadt_Data between two years
 def compare_annual_traffic(data, year1, year2): #takes df and years to be compared as arguments
+    if year1 == year2:
+        st.markdown("<div style='background-color:red;padding:10px;border-radius:5px;'>Please select two different years to start comparison.</div>", unsafe_allow_html=True)
+        return
     col1, col2 = f'AADT_{year1}', f'AADT_{year2}' # created col1,col2 variables to select for aadt columns  using f stringa
     if col1 in data.columns and col2 in data.columns: #checks if col1,col2 in df aadt_data columns
         return data[['ROADNAME', 'COUNTY','ROAD_SECTION', col1, col2]] # outputs dataframe with specified columns
-    else:
+    else: 
         return None
 
 # average traffic volume by county for a specified year
@@ -37,6 +40,8 @@ def average_traffic_by_road_type(data, year):#takes df and year as arguments
 
 # Load the AADT data
 aadt_data = pd.read_csv('MDOT_SHA_Annual_Average_Daily_Traffic_(AADT).csv')
+
+
 
 # Created list containing columns that are to be dropped from the dataset 
 columns_to_drop = ['OBJECTID', 'LOCATION_ID', 'COUNTY_ID', 'MUN_SORT', 'LOC_ERROR','ID_RTE_NO',
@@ -97,11 +102,20 @@ if page == "Overview":
 
     **AADT Dataset Info:**
     The Annual Average Daily Traffic (AADT) data is collected by Maryland Department of Transportation and contains information regarding geographic coverage, traffic volume information, and historical data for the past decade. The collected data is present in both linear road segment and point geometric features, with the linear road segment dataset used for this analysis. The data was collected using over 8700 counting stations and 84 Automatic Traffic Recorders (ATRs). Counts were taken every 3 or 6 year cycle and complemented by growth factor adjustments. This data serves as a critical resource for both federal and state agencies.
+    
+
+    **About Me:**
+    Hello, my name is Surya Mohapatra. I am a data analytics and data visualization professional with expertise in SQL, Excel, Tableau, and Python. I have a strong foundation in analyzing data and deriving meaningful insights.
+
+    I specialize in creating impactful visualizations that effectively communicate data-driven stories. With my skills and experience, I can help you unlock the potential of your data.
+
+    If you have any inquiries or would like to discuss a project, please feel free to reach out to me at gyanasur@ualberta.ca or call me at (443) 410-5489.
+
+    Thank you for visiting my dashboard!
     """)
 
     # link to the data source
-    st.markdown("### [Link to Data Source](https://data.imap.maryland.gov/datasets/3f4b959826c34480be3e4740e4ee025f_1/explore?showTable=true)")
-
+    st.markdown("<a style='color: red; font-size: 16px;' href='https://data.imap.maryland.gov/datasets/3f4b959826c34480be3e4740e4ee025f_1/explore?showTable=true'>Link to Data Source</a>", unsafe_allow_html=True)
 
 elif page == "Visualizations":
     st.header("Traffic Visualizations")
@@ -168,7 +182,8 @@ elif page == "AADT Year Comparison":
             st.subheader(f"Traffic Data Comparison between {year1} and {year2}")
             st.dataframe(comparison_data)
         else:
-            st.write("Data not available for the selected years.")
+            pass
+            #st.write("Data not available for the selected years.")
             
 elif page == "Summary Data Table": #option to filter table by county and/or road type
     st.header("Explore Traffic Data Tables")
